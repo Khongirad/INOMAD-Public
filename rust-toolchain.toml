@@ -1,0 +1,19 @@
+[toolchain]
+# substrate-wasm-builder v31 + polkavm-linker v0.30:
+#
+# ВАЖНО: НЕ добавлять wasm32v1-none !
+# wasm32v1-none — PolkaVM таргет. Substrate ext_* host functions (sp-io)
+# компилируются как WASM imports ТОЛЬКО на wasm32-unknown-unknown.
+# На wasm32v1-none они остаются unresolved → "undefined symbol: ext_*" ошибка.
+#
+# substrate-wasm-builder v31 сам выбирает wasm32-unknown-unknown если
+# wasm32v1-none НЕ установлен. Поэтому держим только классический таргет.
+#
+# На сервере после git pull:
+#   rustup show          ← автоматически установит всё из этого файла
+#   rustup target remove wasm32v1-none  ← если был установлен ранее
+channel = "stable"
+components = ["rustfmt", "clippy", "rust-src"]
+targets = [
+    "wasm32-unknown-unknown",  # ← ЕДИНСТВЕННЫЙ правильный таргет для Substrate
+]

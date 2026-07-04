@@ -1,0 +1,58 @@
+[package]
+name = "pallet-land-registry"
+description = "Altan Network: Land and subsoil registry with Non-Alienation Law — foreign ownership forbidden."
+version = "0.1.0"
+license = "Unlicense"
+authors.workspace = true
+homepage.workspace = true
+repository.workspace = true
+edition.workspace = true
+publish = false
+
+[package.metadata.docs.rs]
+targets = ["x86_64-unknown-linux-gnu"]
+
+[lints]
+workspace = true
+
+[dependencies]
+codec = { features = ["derive"], default-features = false, workspace = true }
+frame-benchmarking = { optional = true, workspace = true }
+frame-support = { default-features = false, workspace = true }
+frame-system = { default-features = false, workspace = true }
+scale-info = { features = ["derive"], default-features = false, workspace = true }
+sp-core = { optional = true, default-features = false, workspace = true }
+# Tight coupling to pallet-inomad-identity for CitizenshipStatus checks in transfer_land.
+pallet-inomad-identity = { path = "../inomad-identity", default-features = false }
+
+[dev-dependencies]
+sp-io = { default-features = false, workspace = true }
+sp-runtime = { default-features = false, workspace = true }
+sp-core = { default-features = false, workspace = true }
+pallet-balances = { default-features = false, workspace = true }
+pallet-inomad-identity = { path = "../inomad-identity", default-features = false }
+
+[features]
+default = ["std"]
+std = [
+	"codec/std",
+	"frame-benchmarking?/std",
+	"frame-support/std",
+	"frame-system/std",
+	"pallet-inomad-identity/std",
+	"scale-info/std",
+]
+runtime-benchmarks = [
+	"frame-benchmarking/runtime-benchmarks",
+	"frame-support/runtime-benchmarks",
+	"frame-system/runtime-benchmarks",
+	"pallet-inomad-identity/runtime-benchmarks",
+	"sp-core/std",
+	"sp-runtime/runtime-benchmarks",
+]
+try-runtime = [
+	"frame-support/try-runtime",
+	"frame-system/try-runtime",
+	"pallet-inomad-identity/try-runtime",
+	"sp-runtime/try-runtime",
+]

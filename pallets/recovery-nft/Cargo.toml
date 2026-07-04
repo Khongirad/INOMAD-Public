@@ -1,0 +1,39 @@
+[package]
+name    = "pallet-recovery-nft"
+version = "0.1.0"
+description = "INOMAD OS — Arbad Social Recovery via NFT credentials"
+license.workspace = true
+authors.workspace = true
+homepage.workspace = true
+repository.workspace = true
+edition.workspace = true
+publish = false
+
+[lints]
+workspace = true
+
+[dependencies]
+codec      = { features = ["derive"], default-features = false, workspace = true }
+scale-info = { features = ["derive", "serde"], default-features = false, workspace = true }
+frame-support = { default-features = false, workspace = true }
+frame-benchmarking = { optional = true, workspace = true }
+frame-system  = { default-features = false, workspace = true }
+sp-runtime    = { default-features = false, workspace = true }
+
+[dev-dependencies]
+pallet-balances = { default-features = false, workspace = true }
+sp-io = { default-features = false, workspace = true }
+
+[features]
+default = ["std"]
+std = [
+    "codec/std",
+    "scale-info/std",
+    "frame-support/std",
+	"frame-benchmarking?/std",
+    "frame-system/std",
+    "sp-runtime/std",
+]
+runtime-benchmarks = [
+	"frame-benchmarking/runtime-benchmarks","frame-support/runtime-benchmarks", "frame-system/runtime-benchmarks"]
+try-runtime        = ["frame-support/try-runtime", "frame-system/try-runtime"]

@@ -1,0 +1,25 @@
+# ============================================================
+# INOMAD OS — Altan Network  (Public Grant Repository)
+# ============================================================
+
+# Rust build artifacts
+target/
+*.d
+
+# IDE
+.vscode/
+.idea/
+.DS_Store
+
+# Logs
+*.log
+
+# Keys and secrets (should never be here, but belt-and-suspenders)
+*.key
+*.pem
+*.secret
+keystore/
+**/keystore/
+chain_spec_raw.json
+
+# Test artifacts

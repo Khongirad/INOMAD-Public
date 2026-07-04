@@ -1,0 +1,59 @@
+[package]
+name = "pallet-annual-profit-tax"
+version = "0.1.0"
+description = "Constitutional annual profit tax (10%/5%) for Altan Network sovereign organizations."
+license = "Unlicense"
+authors.workspace = true
+homepage.workspace = true
+repository.workspace = true
+edition.workspace = true
+publish = false
+
+[package.metadata.docs.rs]
+targets = ["x86_64-unknown-linux-gnu"]
+
+[lints]
+workspace = true
+
+[dependencies]
+codec      = { features = ["derive"], default-features = false, workspace = true }
+scale-info = { features = ["derive"], default-features = false, workspace = true }
+
+frame-support    = { workspace = true }
+frame-system     = { workspace = true }
+pallet-balances  = { workspace = true }
+pallet-timestamp = { workspace = true }
+sp-runtime       = { workspace = true }
+
+frame-benchmarking = { optional = true, workspace = true }
+
+[dev-dependencies]
+sp-core    = { default-features = false, workspace = true }
+sp-io      = { default-features = false, workspace = true }
+sp-runtime = { default-features = false, workspace = true }
+
+[features]
+default = ["std"]
+std = [
+    "codec/std",
+    "scale-info/std",
+    "frame-support/std",
+    "frame-system/std",
+    "pallet-balances/std",
+    "pallet-timestamp/std",
+    "sp-runtime/std",
+    "frame-benchmarking?/std",
+]
+runtime-benchmarks = [
+    "frame-benchmarking/runtime-benchmarks",
+    "frame-support/runtime-benchmarks",
+    "frame-system/runtime-benchmarks",
+    "pallet-balances/runtime-benchmarks",
+    "sp-runtime/runtime-benchmarks",
+]
+try-runtime = [
+    "frame-support/try-runtime",
+    "frame-system/try-runtime",
+    "pallet-balances/try-runtime",
+    "sp-runtime/try-runtime",
+]

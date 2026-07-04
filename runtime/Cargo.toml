@@ -1,0 +1,263 @@
+[package]
+name = "altan-network-runtime"
+description = "Altan Network runtime — Sovereign L1 FRAME-based runtime with ALTAN native token."
+version = "0.1.0"
+license = "Unlicense"
+authors.workspace = true
+homepage.workspace = true
+repository.workspace = true
+edition.workspace = true
+publish = false
+
+[package.metadata.docs.rs]
+targets = ["x86_64-unknown-linux-gnu"]
+
+[lints]
+workspace = true
+
+[dependencies]
+codec = { features = ["derive"], default-features = false, workspace = true }
+frame-benchmarking = { optional = true, default-features = false, workspace = true }
+frame-executive = { default-features = false, workspace = true }
+frame-metadata-hash-extension = { default-features = false, workspace = true }
+frame-support = { features = ["experimental"], default-features = false, workspace = true }
+frame-system = { default-features = false, workspace = true }
+frame-system-benchmarking = { optional = true, default-features = false, workspace = true }
+frame-system-rpc-runtime-api = { default-features = false, workspace = true }
+frame-try-runtime = { optional = true, default-features = false, workspace = true }
+pallet-altan-tax = { default-features = false, workspace = true }
+pallet-inomad-identity = { default-features = false, workspace = true }
+pallet-khural-governance = { default-features = false, workspace = true }
+pallet-steppe-offline = { default-features = false, workspace = true }
+pallet-judicial-courts = { default-features = false, workspace = true }
+pallet-bank-operator = { default-features = false, workspace = true }
+pallet-chronicles = { default-features = false, workspace = true }
+pallet-guilds = { default-features = false, workspace = true }
+pallet-inheritance = { default-features = false, workspace = true }
+pallet-citizen-voice = { default-features = false, workspace = true }
+pallet-black-book = { default-features = false, workspace = true }
+pallet-chancery = { default-features = false, workspace = true }
+pallet-central-bank = { default-features = false, workspace = true }
+pallet-bank-of-siberia = { default-features = false, workspace = true }
+pallet-constitution = { default-features = false, workspace = true }
+pallet-land-registry = { default-features = false, workspace = true }
+pallet-organization = { default-features = false, workspace = true }
+pallet-shielded-vaults = { default-features = false, workspace = true }
+pallet-foreign-affairs = { default-features = false, workspace = true }
+pallet-decimal-dao = { default-features = false, workspace = true }
+pallet-licensing = { default-features = false, workspace = true }
+pallet-inomad-elections = { default-features = false, workspace = true }
+pallet-buryad-mongol-mixer = { default-features = false, workspace = true }
+pallet-altan-vault = { default-features = false, workspace = true }
+pallet-access-nft = { default-features = false, workspace = true }
+pallet-achievement-nft = { default-features = false, workspace = true }
+pallet-recovery-nft = { default-features = false, workspace = true }
+pallet-forums = { default-features = false, workspace = true }
+pallet-annual-profit-tax = { default-features = false, workspace = true }
+pallet-migration-center = { default-features = false, workspace = true }
+pallet-org-roles = { default-features = false, workspace = true }
+pallet-multisig = { default-features = false, workspace = true }
+pallet-proxy = { default-features = false, workspace = true }
+pallet-aura = { default-features = false, workspace = true }
+pallet-balances = { default-features = false, workspace = true }
+pallet-grandpa = { default-features = false, workspace = true }
+pallet-sudo = { default-features = false, workspace = true }
+pallet-template = { default-features = false, workspace = true }
+pallet-timestamp = { default-features = false, workspace = true }
+pallet-transaction-payment = { default-features = false, workspace = true }
+pallet-transaction-payment-rpc-runtime-api = { default-features = false, workspace = true }
+scale-info = { features = ["derive", "serde"], default-features = false, workspace = true }
+serde_json = { workspace = true, default-features = false, features = ["alloc"] }
+sp-api = { default-features = false, workspace = true }
+sp-block-builder = { default-features = false, workspace = true }
+sp-consensus-aura = { features = ["serde"], default-features = false, workspace = true }
+sp-consensus-grandpa = { features = ["serde"], default-features = false, workspace = true }
+sp-core = { features = ["serde"], default-features = false, workspace = true }
+sp-genesis-builder = { default-features = false, workspace = true }
+sp-inherents = { default-features = false, workspace = true }
+sp-offchain = { default-features = false, workspace = true }
+sp-runtime = { features = ["serde"], default-features = false, workspace = true }
+sp-session = { default-features = false, workspace = true }
+sp-storage = { default-features = false, workspace = true }
+sp-transaction-pool = { default-features = false, workspace = true }
+sp-version = { features = ["serde"], default-features = false, workspace = true }
+sp-keyring = { default-features = false, workspace = true }
+
+[build-dependencies]
+substrate-wasm-builder = { optional = true, workspace = true, default-features = true }
+
+[features]
+default = ["std"]
+std = [
+	"codec/std",
+	"frame-benchmarking?/std",
+	"frame-executive/std",
+	"frame-metadata-hash-extension/std",
+	"frame-support/std",
+	"frame-system-benchmarking?/std",
+	"frame-system-rpc-runtime-api/std",
+	"frame-system/std",
+	"frame-try-runtime?/std",
+	"pallet-altan-tax/std",
+	"pallet-inomad-identity/std",
+	"pallet-khural-governance/std",
+	"pallet-steppe-offline/std",
+	"pallet-judicial-courts/std",
+	"pallet-bank-operator/std",
+	"pallet-chronicles/std",
+	"pallet-guilds/std",
+	"pallet-inheritance/std",
+	"pallet-citizen-voice/std",
+	"pallet-black-book/std",
+	"pallet-chancery/std",
+	"pallet-central-bank/std",
+	"pallet-bank-of-siberia/std",
+	"pallet-constitution/std",
+	"pallet-land-registry/std",
+	"pallet-organization/std",
+	"pallet-shielded-vaults/std",
+	"pallet-foreign-affairs/std",
+	"pallet-decimal-dao/std",
+	"pallet-licensing/std",
+        "pallet-inomad-elections/std",
+        "pallet-buryad-mongol-mixer/std",
+        "pallet-altan-vault/std",
+	"pallet-access-nft/std",
+	"pallet-achievement-nft/std",
+	"pallet-recovery-nft/std",
+	"pallet-forums/std",
+	"pallet-annual-profit-tax/std",
+	"pallet-migration-center/std",
+	"pallet-org-roles/std",
+	"pallet-multisig/std",
+	"pallet-proxy/std",
+	"pallet-aura/std",
+	"pallet-balances/std",
+	"pallet-grandpa/std",
+	"pallet-sudo/std",
+	"pallet-template/std",
+	"pallet-timestamp/std",
+	"pallet-transaction-payment-rpc-runtime-api/std",
+	"pallet-transaction-payment/std",
+	"scale-info/std",
+	"serde_json/std",
+	"sp-api/std",
+	"sp-block-builder/std",
+	"sp-consensus-aura/std",
+	"sp-consensus-grandpa/std",
+	"sp-core/std",
+	"sp-genesis-builder/std",
+	"sp-inherents/std",
+	"sp-offchain/std",
+	"sp-runtime/std",
+	"sp-session/std",
+	"sp-storage/std",
+	"sp-transaction-pool/std",
+	"sp-version/std",
+	"sp-keyring/std",
+	"substrate-wasm-builder",
+]
+runtime-benchmarks = [
+	"frame-benchmarking/runtime-benchmarks",
+	"frame-support/runtime-benchmarks",
+	"frame-system-benchmarking/runtime-benchmarks",
+	"frame-system/runtime-benchmarks",
+	"pallet-balances/runtime-benchmarks",
+	"pallet-grandpa/runtime-benchmarks",
+	"pallet-altan-tax/runtime-benchmarks",
+	"pallet-inomad-identity/runtime-benchmarks",
+	"pallet-khural-governance/runtime-benchmarks",
+	"pallet-steppe-offline/runtime-benchmarks",
+	"pallet-judicial-courts/runtime-benchmarks",
+	"pallet-bank-operator/runtime-benchmarks",
+	"pallet-chronicles/runtime-benchmarks",
+	"pallet-guilds/runtime-benchmarks",
+	"pallet-inheritance/runtime-benchmarks",
+	"pallet-citizen-voice/runtime-benchmarks",
+	"pallet-black-book/runtime-benchmarks",
+	"pallet-chancery/runtime-benchmarks",
+	"pallet-central-bank/runtime-benchmarks",
+	"pallet-bank-of-siberia/runtime-benchmarks",
+	"pallet-constitution/runtime-benchmarks",
+	"pallet-land-registry/runtime-benchmarks",
+	"pallet-organization/runtime-benchmarks",
+	"pallet-shielded-vaults/runtime-benchmarks",
+	"pallet-foreign-affairs/runtime-benchmarks",
+	"pallet-decimal-dao/runtime-benchmarks",
+	"pallet-licensing/runtime-benchmarks",
+        "pallet-inomad-elections/runtime-benchmarks",
+	"pallet-access-nft/runtime-benchmarks",
+	"pallet-achievement-nft/runtime-benchmarks",
+	"pallet-recovery-nft/runtime-benchmarks",
+	"pallet-forums/runtime-benchmarks",
+	"pallet-annual-profit-tax/runtime-benchmarks",
+	"pallet-buryad-mongol-mixer/runtime-benchmarks",
+	"pallet-altan-vault/runtime-benchmarks",
+	"pallet-migration-center/runtime-benchmarks",
+	"pallet-org-roles/runtime-benchmarks",
+	"pallet-multisig/runtime-benchmarks",
+	"pallet-proxy/runtime-benchmarks",
+	"pallet-sudo/runtime-benchmarks",
+	"pallet-template/runtime-benchmarks",
+	"pallet-timestamp/runtime-benchmarks",
+	"pallet-transaction-payment/runtime-benchmarks",
+	"sp-runtime/runtime-benchmarks",
+]
+try-runtime = [
+	"frame-executive/try-runtime",
+	"frame-support/try-runtime",
+	"frame-system/try-runtime",
+	"frame-try-runtime/try-runtime",
+	"pallet-altan-tax/try-runtime",
+	"pallet-inomad-identity/try-runtime",
+	"pallet-khural-governance/try-runtime",
+	"pallet-steppe-offline/try-runtime",
+	"pallet-judicial-courts/try-runtime",
+	"pallet-bank-operator/try-runtime",
+	"pallet-chronicles/try-runtime",
+	"pallet-guilds/try-runtime",
+	"pallet-inheritance/try-runtime",
+	"pallet-citizen-voice/try-runtime",
+	"pallet-black-book/try-runtime",
+	"pallet-chancery/try-runtime",
+	"pallet-central-bank/try-runtime",
+	"pallet-bank-of-siberia/try-runtime",
+	"pallet-constitution/try-runtime",
+	"pallet-land-registry/try-runtime",
+	"pallet-organization/try-runtime",
+	"pallet-shielded-vaults/try-runtime",
+	"pallet-foreign-affairs/try-runtime",
+	"pallet-decimal-dao/try-runtime",
+	"pallet-licensing/try-runtime",
+        "pallet-inomad-elections/try-runtime",
+	"pallet-access-nft/try-runtime",
+	"pallet-achievement-nft/try-runtime",
+	"pallet-recovery-nft/try-runtime",
+	"pallet-forums/try-runtime",
+	"pallet-annual-profit-tax/try-runtime",
+	"pallet-migration-center/try-runtime",
+	"pallet-org-roles/try-runtime",
+	"pallet-multisig/try-runtime",
+	"pallet-proxy/try-runtime",
+	"pallet-aura/try-runtime",
+	"pallet-balances/try-runtime",
+	"pallet-grandpa/try-runtime",
+	"pallet-sudo/try-runtime",
+	"pallet-template/try-runtime",
+	"pallet-timestamp/try-runtime",
+	"pallet-transaction-payment/try-runtime",
+	"sp-runtime/try-runtime",
+]
+
+# Enable the metadata hash generation.
+#
+# This is hidden behind a feature because it increases the compile time.
+# The wasm binary needs to be compiled twice, once to fetch the metadata,
+# generate the metadata hash and then a second time with the
+# `RUNTIME_METADATA_HASH` environment variable set for the `CheckMetadataHash`
+# extension.
+metadata-hash = ["substrate-wasm-builder/metadata-hash"]
+
+# A convenience feature for enabling things when doing a build
+# for an on-chain release.
+on-chain-release-build = ["metadata-hash", "sp-api/disable-logging"]

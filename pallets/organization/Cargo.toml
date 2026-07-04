@@ -1,0 +1,57 @@
+[package]
+name = "pallet-organization"
+description = "Altan Network: Corporate Organization (Гильдия) — SBTs, crew registry, manual tax filing, and automatic digital punishment for tax evaders."
+version = "0.1.0"
+license = "Unlicense"
+authors.workspace = true
+homepage.workspace = true
+repository.workspace = true
+edition.workspace = true
+publish = false
+
+[package.metadata.docs.rs]
+targets = ["x86_64-unknown-linux-gnu"]
+
+[lints]
+workspace = true
+
+[dependencies]
+codec = { features = ["derive"], default-features = false, workspace = true }
+frame-benchmarking = { optional = true, workspace = true }
+frame-support = { default-features = false, workspace = true }
+frame-system = { default-features = false, workspace = true }
+scale-info = { features = ["derive"], default-features = false, workspace = true }
+sp-runtime = { default-features = false, workspace = true }
+# Cross-pallet: IdentityInterface for Director freeze on tax evasion
+pallet-inomad-identity = { path = "../inomad-identity", default-features = false }
+# Cross-pallet: ShieldedVaultsInterface for ZK tax bridge (Asymmetric Transparency)
+pallet-shielded-vaults = { path = "../shielded-vaults", default-features = false }
+
+[dev-dependencies]
+sp-io = { default-features = false, workspace = true }
+sp-core = { default-features = false, workspace = true }
+pallet-balances = { default-features = false, workspace = true }
+
+[features]
+default = ["std"]
+std = [
+	"codec/std",
+	"frame-benchmarking?/std",
+	"frame-support/std",
+	"frame-system/std",
+	"pallet-inomad-identity/std",
+	"pallet-shielded-vaults/std",
+	"scale-info/std",
+	"sp-runtime/std",
+]
+runtime-benchmarks = [
+	"frame-benchmarking/runtime-benchmarks",
+	"frame-support/runtime-benchmarks",
+	"frame-system/runtime-benchmarks",
+	"sp-runtime/runtime-benchmarks",
+]
+try-runtime = [
+	"frame-support/try-runtime",
+	"frame-system/try-runtime",
+	"sp-runtime/try-runtime",
+]
