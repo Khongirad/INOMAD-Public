@@ -15,7 +15,7 @@
 
 Please report vulnerabilities via email to:
 
-**security@inomad.life**
+**ceo@inomad.life**
 
 Include:
 1. Description of the vulnerability
