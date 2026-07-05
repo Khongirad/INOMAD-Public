@@ -64,7 +64,7 @@ The following constants are **baked into WASM** and cannot be changed by governa
 **Fee Split Notes:**
 
 - **Khural Treasury (54%)** — On-chain account controlled exclusively by `pallet-khural-governance`. Spending requires a passed Khural proposal. No individual can access these funds unilaterally.
-- **Foundation Fund (36%)** — Governed by **INOMAD AG** (registered company) and its **Board of Directors**. Funds are held in a corporate multisig account — not a personal wallet of any individual. All expenditures (ecosystem development, infrastructure, R&D, grants) require Board authorization and are subject to corporate accounting and audits. The 36% ratio is encoded in WASM and **cannot be altered by INOMAD AG or the Board** — only a runtime upgrade passed by the Khural can change it.
+- **Foundation Fund (36%)** — Governed by **INOMAD AG** and its Board of Directors, operating under a license issued by **INOMAD LLC (Texas, USA)** — the registered creator and IP/OS holder of INOMAD OS. The flow is: `pallet-altan-tax` → INOMAD AG corporate account → operating expenses (infrastructure, R&D, grants, team) → net profit distributed as dividends to INOMAD LLC (TX, USA) per license agreement. No personal wallets are involved at any stage. The 36% ratio is encoded in WASM and **cannot be altered by INOMAD AG, its Board, or INOMAD LLC** — only a runtime upgrade passed by the Khural can change it.
 - **Validators (10%)** — Distributed **directly on-chain** by `pallet-staking` proportionally to each validator's stake and performance. INOMAD AG has **no role** in this distribution path — it flows automatically per-era without any off-chain intermediary.
 
 ### Authentication
