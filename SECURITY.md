@@ -64,8 +64,8 @@ The following constants are **baked into WASM** and cannot be changed by governa
 **Fee Split Notes:**
 
 - **Khural Treasury (54%)** — On-chain account controlled exclusively by `pallet-khural-governance`. Spending requires a passed Khural proposal. No individual can access these funds unilaterally.
-- **Foundation Fund (36%)** — Flows to the INOMAD AG multisig account. This replaces the previous split of "26% AG + 10% Creator" — there is **no personal wallet** associated with the creator or any individual. All Foundation Fund expenditures (ecosystem development, infrastructure, grants) are published on-chain and require multisig authorization. Audit reports are published in `AUDIT.md`. The split ratio itself is encoded in WASM and **cannot be altered by the AG multisig** — only a runtime upgrade approved by the Khural can change it.
-- **Validators (10%)** — Distributed **directly on-chain** by `pallet-staking` proportionally to each validator's stake and performance. The AG has **no role** in this distribution path — it flows automatically per-era without any off-chain intermediary.
+- **Foundation Fund (36%)** — Governed by **INOMAD AG** (registered company) and its **Board of Directors**. Funds are held in a corporate multisig account — not a personal wallet of any individual. All expenditures (ecosystem development, infrastructure, R&D, grants) require Board authorization and are subject to corporate accounting and audits. The 36% ratio is encoded in WASM and **cannot be altered by INOMAD AG or the Board** — only a runtime upgrade passed by the Khural can change it.
+- **Validators (10%)** — Distributed **directly on-chain** by `pallet-staking` proportionally to each validator's stake and performance. INOMAD AG has **no role** in this distribution path — it flows automatically per-era without any off-chain intermediary.
 
 ### Authentication
 
